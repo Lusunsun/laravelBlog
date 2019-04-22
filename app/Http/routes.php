@@ -13,7 +13,7 @@
 
 Route::get('/',['uses'=>'IndexController@index']);
 Route::get('articleList',['uses'=>'ArticleController@articleList']);
-Route::get('article',['uses'=>'ArticleController@index']);
+Route::get('article/{id}',['uses'=>'ArticleController@index','as'=>'article']);
 
 //后台
 Route::group(['prefix' => 'admin'],  function() {

@@ -99,7 +99,7 @@
             var categoryId = $('#categoryId').val();
             var comments = $('#comments').val();
             var title = $('#title').val();
-            var content = $('#content').val();
+            var content = $('.editormd-preview-container').html();
             var isHot = $('#isHot').hasClass('checked')?1:0;
             $.post('{{ route('articleAdd') }}',{categoryId:categoryId,comments:comments,title:title,content:content,isHot:isHot},
                 function(data){

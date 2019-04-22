@@ -5,12 +5,20 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Services\ArticleService;
 
 class ArticleController extends Controller
 {
-    public function index()
+    private $ArticleService;
+    public function __construct(ArticleService $articleService)
     {
-        return view('index.article');
+        $this->ArticleService = $articleService;
+    }
+
+    public function index($id)
+    {
+        $article = $this->ArticleService->getArticle($id);
+        return view('index.article',compact('article'));
     }
 
     public function articleList()
