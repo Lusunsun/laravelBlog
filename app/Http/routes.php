@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/',['uses'=>'IndexController@index']);
+Route::get('/',['uses'=>'IndexController@index','as'=>'home']);
 Route::get('articleList',['uses'=>'ArticleController@articleList']);
 Route::get('article/{id}',['uses'=>'ArticleController@index','as'=>'article']);
 

@@ -15,9 +15,14 @@ class IndexController extends Controller
         $this->ArticleService = $articleService;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $articles = $this->ArticleService->getArticleList();
-        return view('index.index',compact('articles'));
+        $page = $request->input('page', 1);
+        $keyWord = $request->input('keyWord');
+        $categoryId = $request->input('categoryId');
+        $result = $this->ArticleService->getArticleList($page,$keyWord,$categoryId);
+        $articles = $result['data'];
+        $count = ceil($result['count']/5);
+        return view('index.index',compact('articles','page','count'));
     }
 }

@@ -8,6 +8,7 @@ use DB;
 class Article extends Model
 {
     protected $table = 'article';
+    protected $limit = 5;
 
     public function getArticle($id)
     {
@@ -25,17 +26,32 @@ class Article extends Model
         return $data;
     }
 
-    public function getAllArticle()
+    public function getAllArticle($page = 1, $keyWord = null, $categoryId = 0)
     {
+        $offset = ($page-1) * $this->limit;
         $select = ['article.id','article.title','article.content','article.views','article.comments','article.updateTime','article.isHot','category.name','article.htmlContent'];
-        $where['article.isDelete'] = 0;
-        $where['category.isDelete'] = 0;
-        $data = DB::table('article')
-            ->join('category', 'article.categoryId', '=', 'category.id')
+
+        $where[] = ['article.isDelete','=',0];
+        $where[] = ['category.isDelete','=',0];
+
+        if (!empty($keyWord)) {
+            $where[] = ['article.htmlContent','like','%'.$keyWord.'%'];
+            $where[] = ['article.title','like','%'.$keyWord.'%'];
+        }
+
+        if (!empty($categoryId)) {
+            $where[] = ['article.categoryId','=',$categoryId];
+        }
+
+        $countQuery = $query = DB::table('article')
+            ->leftjoin('category', 'article.categoryId', '=', 'category.id')
             ->where($where)
-            ->select($select)
+            ->select($select);
+        $count = $countQuery->count();
+        $data = $query->offset($offset)
+            ->limit($this->limit)
             ->get();
-        return $data;
+        return compact('data','count');
     }
 
     public function editArticle($param)

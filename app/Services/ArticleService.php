@@ -13,9 +13,9 @@ class  ArticleService {
         $this->article = $article;
     }
 
-    public function getArticleList()
+    public function getArticleList($page,$keyWord,$categoryId)
     {
-        return $this->article->getAllArticle();
+        return $this->article->getAllArticle($page,$keyWord,$categoryId);
     }
 
     public function getArticle($id)

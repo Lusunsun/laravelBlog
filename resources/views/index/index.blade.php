@@ -13,9 +13,19 @@
         <h3>文章列表</h3>
         @foreach($articles as $key => $article)
         <div class="toggle">
-        <h2 class="trigger"><a href="{{ route('article',['id'=>$article->id]) }}">{{ $article->name }}</a></h2>
+        <h2 class="trigger"><a href="{{ route('article',['id'=>$article->id]) }}">{{ $article->title }}</a></h2>
         </div>
         @endforeach
+        <div class="toggle" style="margin-top: 30px;">
+            <div class="page-navi">
+                <p>Page {{$page}} of {{ $count }}</p>
+                <ul>
+                    @for ($i = 1; $i < $count+1; $i++)
+                        <li><a href="{{ route('home',['page'=>$i]) }}" class="{{ $page==$i ? 'current':''}} ">{{ $i }}</a></li>
+                    @endfor
+                </ul>
+            </div>
+        </div>
     </div>
 @endsection
 

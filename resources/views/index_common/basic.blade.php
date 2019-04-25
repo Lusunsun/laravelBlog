@@ -16,11 +16,6 @@
     <script type="text/javascript" src="{{ asset('/index/style/js/jquery.prettyPhoto.js') }}"></script>
     <script type="text/javascript" src="{{ asset('/index/style/js/jquery.superbgimage.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('/index/style/js/jquery.slickforms.js') }}"></script>
-    <script type="text/javascript">
-        jQuery(document).ready(function($){
-            $('.forms').dcSlickForms();
-        });
-    </script>
 </head>
 <body>
 <!-- Fullscreen backgrounds -->
