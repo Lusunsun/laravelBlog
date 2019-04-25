@@ -34,6 +34,14 @@ Route::group(['prefix' => 'admin'],  function() {
     Route::post('categoryDelete',['uses'=>'admin\CategoryController@delete','as'=>'categoryDelete']);
     Route::get('categoryCreate',['uses'=>'admin\CategoryController@create','as'=>'categoryCreate']);
     Route::post('categoryAdd',['uses'=>'admin\CategoryController@add','as'=>'categoryAdd']);
+
+    //标签管理
+    Route::get('tagLists',['uses'=>'admin\TagController@lists','as'=>'tagLists']);
+    Route::get('tagUpdate',['uses'=>'admin\TagController@update','as'=>'tagUpdate']);
+    Route::post('tagEdit',['uses'=>'admin\TagController@edit','as'=>'tagEdit']);
+    Route::post('tagDelete',['uses'=>'admin\TagController@delete','as'=>'tagDelete']);
+    Route::get('tagCreate',['uses'=>'admin\TagController@create','as'=>'tagCreate']);
+    Route::post('tagAdd',['uses'=>'admin\TagController@add','as'=>'tagAdd']);
 });
 
 

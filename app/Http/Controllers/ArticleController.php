@@ -25,4 +25,9 @@ class ArticleController extends Controller
     {
         return view('index.articleList');
     }
+
+    public function getHots()
+    {
+        return $this->ArticleService->getHots();
+    }
 }

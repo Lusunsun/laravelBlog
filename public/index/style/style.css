@@ -154,7 +154,7 @@ ul {
 	font-size: 14px;
 }
 ul li {
-	background: transparent url(style/images/bullet.png) center left no-repeat;
+	background: transparent  center left no-repeat;
 	padding-left: 15px;
 }
 ol {
@@ -181,7 +181,7 @@ blockquote {
 	font-weight: normal;
 	line-height: 25px;
 	padding-left: 30px;
-	background: transparent url(style/images/quote.png) no-repeat left 7px;
+	background: transparent  no-repeat left 7px;
 }
 .hr2 {
 	border-top: 3px solid #454545;
@@ -573,7 +573,7 @@ ul.flickr li img {
 	margin-bottom: 25px;
 }
 .quote blockquote {
-	background: #FFF url(style/images/quote.png) no-repeat 15px 15px;
+	background: #FFF  no-repeat 15px 15px;
 	padding: 15px 15px 15px 40px;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -1335,17 +1335,17 @@ div.showcase-tooltip {
 	display: block;
 }
 .comments {
-	background: transparent url(style/images/icon-comment.png) no-repeat left center;
+	background: transparent  no-repeat left center;
 	padding-left: 26px;
 	margin-right: 10px;
 	padding-right: 10px;
 }
 .categories {
-	background: transparent url(style/images/icon-category.png) no-repeat left center;
+	background: transparent  no-repeat left center;
 	padding-left: 22px;
 }
 .tags {
-	background: transparent url(style/images/icon-tag.png) no-repeat left center;
+	background: transparent  no-repeat left center;
 	padding-left: 30px;
 	margin-top: 10px;
 	padding-top: 5px;
@@ -1413,7 +1413,7 @@ a.more {
 	background-color: #fff;
 	border:1px solid #dedede;
 	color: #4d4d4d;
-	width: 245px;
+	width: 200px;
 	padding: 5px 10px;
 	height: 24px;
 	font-size: 13px;
@@ -1421,7 +1421,7 @@ a.more {
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
-	background: #FFF url('images/search.png') 240px center no-repeat;
+	background: #FFF  240px center no-repeat;
 }
 .tag-list ul li {
 	background: none;

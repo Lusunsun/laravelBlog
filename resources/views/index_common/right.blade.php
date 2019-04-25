@@ -1,18 +1,20 @@
 <div class="sidebar">
     <div class="sidebar-box">
         <h4>热门文章</h4>
+        @inject('getHots', 'App\Http\Controllers\ArticleController')
         <ul class="latest-posts">
-            <li><span class="date"><em class="day">22</em><em class="month">Jun</em></span> <a href="#">Vivamus soder pharetra libero atincidunt</a> </li>
-            <li><span class="date"><em class="day">14</em><em class="month">May</em></span> <a href="#">Vivamus soder pharetra libero atincidunt</a> </li>
-            <li><span class="date"><em class="day">11</em><em class="month">May</em></span> <a href="#">Vivamus soder pharetra libero atincidunt</a> </li>
-            <li><span class="date"><em class="day">08</em><em class="month">Apr</em></span> <a href="#">Vivamus soder pharetra libero atincidunt</a> </li>
+            @foreach($getHots->getHots() as $key => $hot)
+                <li><span class="date"> <em class="month">{{ date('Y M d',$hot->updateTime) }}</em> </span> <a href="{{ route('article',['id'=>$hot->id]) }}">{{ $hot->title }}</a> </li>
+            @endforeach
         </ul>
     </div>
     <div class="sidebar-box">
         <h4>Search</h4>
-        <form class="searchform" method="get">
-            <input type="text" id="s" name="s" value="type and hit enter" onfocus="this.value=''" onblur="this.value='type and hit enter'"/>
-        </form>
+        <div class="searchform">
+            <div style="">
+                <input type="text" id="KeyWord" name="s" value="KeyWord" onfocus="this.value=''" onblur="this.value='KeyWord'"/>
+            </div>
+        </div>
     </div>
     <div class="sidebar-box">
         <h4>Tags</h4>

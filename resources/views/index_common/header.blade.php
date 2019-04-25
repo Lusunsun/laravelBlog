@@ -2,13 +2,13 @@
     <div class="logo"><a href="index.html"><img src="./index/style/images/logo.png" alt="" /></a></div>
     <div class="social">
         <ul>
-            <li><a href="#"><img src="./index/style/images/icon-rss.png" alt="RSS" /></a></li>
-            <li><a href="#"><img src="./index/style/images/icon-facebook.png" alt="Facebook" /></a></li>
-            <li><a href="#"><img src="./index/style/images/icon-twitter.png" alt="Twitter" /></a></li>
-            <li><a href="#"><img src="./index/style/images/icon-googleplus.png" alt="Google+" /></a></li>
-            <li><a href="#"><img src="./index/style/images/icon-dribble.png" alt="Dribble" /></a></li>
-            <li><a href="#"><img src="./index/style/images/icon-flickr.png" alt="Flickr" /></a></li>
-            <li><a href="#"><img src="./index/style/images/icon-tumblr.png" alt="Tumblr" /></a></li>
+            <li><a href="#"><img src="{{ asset('/index/style/images/icon-rss.png') }}" alt="RSS" /></a></li>
+            <li><a href="#"><img src="{{ asset('index/style/images/icon-facebook.png') }}" alt="Facebook" /></a></li>
+            <li><a href="#"><img src="{{ asset('index/style/images/icon-twitter.png') }}" alt="Twitter" /></a></li>
+            <li><a href="#"><img src="{{ asset('index/style/images/icon-googleplus.png') }}" alt="Google+" /></a></li>
+            <li><a href="#"><img src="{{ asset('index/style/images/icon-dribble.png') }}" alt="Dribble" /></a></li>
+            <li><a href="#"><img src="{{ asset('index/style/images/icon-flickr.png') }}" alt="Flickr" /></a></li>
+            <li><a href="#"><img src="{{ asset('index/style/images/icon-tumblr.png') }}" alt="Tumblr" /></a></li>
         </ul>
     </div>
 </div>

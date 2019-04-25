@@ -38,7 +38,7 @@ class ArticleController extends Controller
 
     public function edit(Request $request)
     {
-        $param = $request->only(['id','title','categoryId','isHot','views','comments','content']);
+        $param = $request->only(['id','title','categoryId','isHot','views','comments','content','htmlContent']);
         return $this->articleService->editArticle($param) ? 'success' : 'error';
     }
 

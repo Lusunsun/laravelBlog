@@ -11,7 +11,7 @@ class Article extends Model
 
     public function getArticle($id)
     {
-        $select = ['article.id','article.title','article.content','article.views','article.comments','article.updateTime','article.isHot','category.name'];
+        $select = ['article.id','article.title','article.content','article.views','article.comments','article.updateTime','article.isHot','category.name','article.htmlContent'];
 
         $where['article.isDelete'] = 0;
         $where['category.isDelete'] = 0;
@@ -27,7 +27,7 @@ class Article extends Model
 
     public function getAllArticle()
     {
-        $select = ['article.id','article.title','article.content','article.views','article.comments','article.updateTime','article.isHot','category.name'];
+        $select = ['article.id','article.title','article.content','article.views','article.comments','article.updateTime','article.isHot','category.name','article.htmlContent'];
         $where['article.isDelete'] = 0;
         $where['category.isDelete'] = 0;
         $data = DB::table('article')
@@ -48,6 +48,7 @@ class Article extends Model
             'categoryId' => $param['categoryId'],
             'comments' => $param['comments'],
             'views' => $param['views'],
+            'htmlContent' => $param['htmlContent'],
             'updateTime' => time()
         ];
         $result = DB::table('article')->where($where)->update($updateData);
@@ -70,10 +71,18 @@ class Article extends Model
             'categoryId' => $param['categoryId'],
             'views' => $param['categoryId'],
             'comments' => $param['comments'],
+            'htmlContent' => $param['htmlContent'],
             'updateTime' => time()
         ];
         return DB::table('article')->insert($insertData);
+    }
 
+    public function getHots()
+    {
+        $select = ['updateTime','id','title'];
+        $where['isHot'] = 1;
+        $where['isDelete'] = 0;
+        return DB::table('article')->where($where)->select($select)->take(5)->get();
     }
 
 }

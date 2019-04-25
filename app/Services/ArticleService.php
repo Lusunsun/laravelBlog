@@ -37,4 +37,9 @@ class  ArticleService {
     {
         return $this->article->addArticle($param);
     }
+
+    public function getHots()
+    {
+        return $this->article->getHots();
+    }
 }

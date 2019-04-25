@@ -63,16 +63,14 @@
             <li>
                 <a data-toggle="collapse" href="#formsExamples">
                     <i class="pe-7s-note2"></i>
-                    <p>留言管理
+                    <p>标签管理
                         <b class="caret"></b>
                     </p>
                 </a>
                 <div class="collapse" id="formsExamples">
                     <ul class="nav">
-                        <li><a href="forms/regular.html">Regular Forms</a></li>
-                        <li><a href="forms/extended.html">Extended Forms</a></li>
-                        <li><a href="forms/validation.html">Validation Forms</a></li>
-                        <li><a href="forms/wizard.html">Wizard</a></li>
+                        <li><a href="{{ route('tagLists') }}">标签列表</a></li>
+                        <li><a href="{{ route('tagCreate') }}">新增标签</a></li>
                     </ul>
                 </div>
             </li>
