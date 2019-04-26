@@ -20,9 +20,11 @@ class IndexController extends Controller
         $page = $request->input('page', 1);
         $keyWord = $request->input('keyWord');
         $categoryId = $request->input('categoryId');
-        $result = $this->ArticleService->getArticleList($page,$keyWord,$categoryId);
+        $tag = $request->input('tag' ,null);
+        $limit = 5;
+        $result = $this->ArticleService->getArticleList($page, $keyWord, $categoryId, $limit, $tag);
         $articles = $result['data'];
-        $count = ceil($result['count']/5);
+        $count = ceil($result['count']/$limit);
         return view('index.index',compact('articles','page','count'));
     }
 }

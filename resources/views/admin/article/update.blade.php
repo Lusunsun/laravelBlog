@@ -65,7 +65,19 @@
                             </div>
                         </div>
                     </fieldset>
+
+                    <fieldset>
+                    <div class="row">
+                        <label class="col-sm-2 control-label">标签</label>
+                        <div class="form-group" style="height: 10%">
+                            <div class="col-md-5" >
+                                <input name="tagsinput" id="tags" class="tagsinput tag-azure tag-fill" value="{{ $articleData->tag }}" />
+                            </div>
+                        </div>
+                    </div>
+                    </fieldset>
                 </form>
+
 
             </div>
         </div>  <!-- end card -->
@@ -107,9 +119,10 @@
             var comments = $('#comments').val();
             var title = $('#title').val();
             var content = $('#content').val();
+            var tags = $('#tags').val();
             var htmlContent = $('.editormd-preview-container').html();
             var isHot = $('#isHot').hasClass('checked')?1:0;
-            $.post('{{ route('articleEdit') }}',{id:id,categoryId:categoryId,comments:comments,title:title,content:content,isHot:isHot,htmlContent:htmlContent},
+            $.post('{{ route('articleEdit') }}',{id:id,categoryId:categoryId,comments:comments,title:title,content:content,isHot:isHot,htmlContent:htmlContent,tag:tags},
                 function(data){
                     swal('', '', data);
                 }

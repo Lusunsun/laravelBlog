@@ -15,8 +15,9 @@ class ArticleController extends Controller
         $this->ArticleService = $articleService;
     }
 
-    public function index($id)
+    public function index(Request $request)
     {
+        $id = $request->input('id');
         $article = $this->ArticleService->getArticle($id);
         return view('index.article',compact('article'));
     }
@@ -29,5 +30,10 @@ class ArticleController extends Controller
     public function getHots()
     {
         return $this->ArticleService->getHots();
+    }
+
+    public function getHotTags()
+    {
+        return $this->ArticleService->getHotTags();
     }
 }

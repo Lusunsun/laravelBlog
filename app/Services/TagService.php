@@ -12,9 +12,19 @@ class  TagService {
         $this->Tag = $Tag;
     }
 
-    public function getAll()
+    public function getAll($page)
     {
-        return $this->Tag->getAll();
+        return $this->Tag->getAll($page);
+    }
+
+    public function showAll()
+    {
+        $tags = $this->Tag->showAll();
+        $tagStr = '';
+        foreach ($tags as $key =>$value){
+            $tagStr .=$value->name.' ';
+        }
+        return trim($tagStr);
     }
 
     public function addTag($param)

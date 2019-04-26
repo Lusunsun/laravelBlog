@@ -22,11 +22,15 @@ class ArticleController extends Controller
         return view('admin.index');
     }
 
-    public function lists()
+    public function lists(Request $request)
     {
-        $articleListData = $this->articleService->getArticleList();
+        $page = $request->input('page', 1);
+        $limit = 10;
+        $articleListData = $this->articleService->getArticleList($page, null, null, $limit,null);
+        $count = ceil($articleListData['count']/$limit);
+        $articles = $articleListData['data'];
         $trColor = trColor();
-        return view('admin.article.lists',compact('articleListData','trColor'));
+        return view('admin.article.lists',compact('articles','trColor','count','page'));
     }
 
     public function update(Request $request)
@@ -38,7 +42,7 @@ class ArticleController extends Controller
 
     public function edit(Request $request)
     {
-        $param = $request->only(['id','title','categoryId','isHot','views','comments','content','htmlContent']);
+        $param = $request->only(['id','title','categoryId','isHot','views','comments','content','htmlContent','tag']);
         return $this->articleService->editArticle($param) ? 'success' : 'error';
     }
 
@@ -55,7 +59,7 @@ class ArticleController extends Controller
 
     public function add(Request $request)
     {
-        $param = $request->only(['categoryId','comments','title','content','isHot']);
+        $param = $request->only(['categoryId','comments','title','content','isHot','htmlContent','tag']);
         return $this->articleService->addArticle($param) ? 'success' : 'error';
     }
 

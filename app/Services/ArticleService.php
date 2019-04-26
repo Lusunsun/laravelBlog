@@ -13,9 +13,9 @@ class  ArticleService {
         $this->article = $article;
     }
 
-    public function getArticleList($page,$keyWord,$categoryId)
+    public function getArticleList($page, $keyWord, $categoryId, $limit, $tag)
     {
-        return $this->article->getAllArticle($page,$keyWord,$categoryId);
+        return $this->article->getAllArticle($page, $keyWord, $categoryId , $limit, $tag);
     }
 
     public function getArticle($id)
@@ -41,5 +41,21 @@ class  ArticleService {
     public function getHots()
     {
         return $this->article->getHots();
+    }
+
+    /**
+     * [
+     *   'tagName'=>[ArticleIds]
+     * ]
+     */
+    public function getHotTags()
+    {
+        $tags = [];
+        $articles = $this->article->getHots();
+        foreach ($articles as $key => $article){
+            $arr = explode(' ', $article->tag);
+            $tags = array_merge($tags, $arr);
+        }
+        return array_unique(array_filter($tags));
     }
 }

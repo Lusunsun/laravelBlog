@@ -18,12 +18,12 @@
     </div>
     <div class="sidebar-box">
         <h4>Tags</h4>
-        @inject('Tags', 'App\Http\Controllers\admin\TagController')
+        @inject('Tags', 'App\Http\Controllers\ArticleController')
         <div class="tag-list">
             <ul>
-                @foreach($Tags->getAll() as $key => $tag)
+                @foreach($Tags->getHotTags() as $key => $tag)
                     {{--<li><a href="{{ route('home',['tagId'=>$tag->id]) }}">{{ $tag->name }}</a></li>--}}
-                    <li><a href="">{{ $tag->name }}</a></li>
+                    <li><a href="{{ route('home',['tag'=>$tag]) }}">{{ $tag }}</a></li>
                 @endforeach
             </ul>
         </div>

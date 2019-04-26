@@ -8,11 +8,24 @@ use DB;
 class Category extends Model
 {
 
-    public function getAllCategory($select = ['*'])
+    public function getAllCategory($page,$limit = 5)
+    {
+        $offset = ($page-1) * $limit;
+        $where['isDelete'] = 0;
+        $countQuery = $query = Db::table('category')
+            ->where($where);
+        $count = $countQuery ->count();
+        $data = $query
+            ->offset($offset)
+            ->limit($limit)
+            ->get();
+        return compact('count','data');
+    }
+
+    public function getSelect()
     {
         $where['isDelete'] = 0;
-        $data = Db::table('category')->where($where)->select($select)->get();
-        return $data;
+        return Db::table('category')->where($where)->get();
     }
 
     public function getCategory($id,$select = ['*'])
@@ -38,6 +51,9 @@ class Category extends Model
 
     public function deleteCategory($id)
     {
+        if (0 != Db::table('article')->where('isDelete', 0)->where('categoryId', $id)->count()) {
+            return false;
+        }
         $where['id'] = $id;
         $result = Db::table('category')->where($where)->update(['isDelete'=>1]);
         return ($result == 1) ? true : false;

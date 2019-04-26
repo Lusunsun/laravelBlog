@@ -8,11 +8,10 @@ use DB;
 class Article extends Model
 {
     protected $table = 'article';
-    protected $limit = 5;
 
     public function getArticle($id)
     {
-        $select = ['article.id','article.title','article.content','article.views','article.comments','article.updateTime','article.isHot','category.name','article.htmlContent'];
+        $select = ['article.id','article.title','article.content','article.views','article.comments','article.updateTime','article.isHot','category.name','article.htmlContent','article.tag'];
 
         $where['article.isDelete'] = 0;
         $where['category.isDelete'] = 0;
@@ -26,21 +25,25 @@ class Article extends Model
         return $data;
     }
 
-    public function getAllArticle($page = 1, $keyWord = null, $categoryId = 0)
+    public function getAllArticle($page = 1, $keyWord = null, $categoryId = null, $limit, $tag = null)
     {
-        $offset = ($page-1) * $this->limit;
-        $select = ['article.id','article.title','article.content','article.views','article.comments','article.updateTime','article.isHot','category.name','article.htmlContent'];
+        $offset = ($page-1) * $limit;
+        $select = ['article.id','article.title','article.content','article.views','article.comments','article.updateTime','article.isHot','category.name as categoryName','article.htmlContent'];
 
         $where[] = ['article.isDelete','=',0];
         $where[] = ['category.isDelete','=',0];
 
         if (!empty($keyWord)) {
-            $where[] = ['article.htmlContent','like','%'.$keyWord.'%'];
-            $where[] = ['article.title','like','%'.$keyWord.'%'];
+            $where[] = ['article.htmlContent', 'like', '%'.$keyWord.'%'];
+            $where[] = ['article.title', 'like', '%'.$keyWord.'%'];
         }
 
         if (!empty($categoryId)) {
             $where[] = ['article.categoryId','=',$categoryId];
+        }
+
+        if(!empty($tag)){
+            $where[] = ['article.tag','like','%'.$tag.'%'];
         }
 
         $countQuery = $query = DB::table('article')
@@ -49,7 +52,8 @@ class Article extends Model
             ->select($select);
         $count = $countQuery->count();
         $data = $query->offset($offset)
-            ->limit($this->limit)
+            ->limit($limit)
+            ->orderBy('id')
             ->get();
         return compact('data','count');
     }
@@ -65,6 +69,7 @@ class Article extends Model
             'comments' => $param['comments'],
             'views' => $param['views'],
             'htmlContent' => $param['htmlContent'],
+            'tag' => $param['tag'],
             'updateTime' => time()
         ];
         $result = DB::table('article')->where($where)->update($updateData);
@@ -88,6 +93,7 @@ class Article extends Model
             'views' => $param['categoryId'],
             'comments' => $param['comments'],
             'htmlContent' => $param['htmlContent'],
+            'tag' => $param['tag'],
             'updateTime' => time()
         ];
         return DB::table('article')->insert($insertData);
@@ -95,10 +101,10 @@ class Article extends Model
 
     public function getHots()
     {
-        $select = ['updateTime','id','title'];
+        $select = ['updateTime','id','title','tag'];
         $where['isHot'] = 1;
         $where['isDelete'] = 0;
-        return DB::table('article')->where($where)->select($select)->take(5)->get();
+        return DB::table('article')->where($where)->select($select)->take(5)->orderBy('views','desc')->get();
     }
 
 }

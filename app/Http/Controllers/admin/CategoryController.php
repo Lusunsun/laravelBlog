@@ -22,11 +22,14 @@ class CategoryController extends Controller
         return $this->categoryService->getSelect();
     }
 
-    public function lists()
+    public function lists(Request $request)
     {
-        $categoryLists = $this->categoryService->getCategoryLists();
+        $page = $request->get('page', 1);
+        $result = $this->categoryService->getCategoryLists($page);
+        $categories = $result['data'];
+        $count = ceil($result['count']/5);
         $trColor = trColor();
-        return view('admin.category.lists',compact('categoryLists','trColor'));
+        return view('admin.category.lists',compact('categories','trColor','page','count'));
     }
 
     public function update(Request $request)

@@ -65,6 +65,17 @@
                             </div>
                         </div>
                     </fieldset>
+
+                    <fieldset>
+                        <div class="row">
+                            <label class="col-sm-2 control-label">标签</label>
+                            <div class="form-group" style="height: 10%">
+                                <div class="col-md-5" >
+                                    <input name="tagsinput" id="tags" class="tagsinput tag-azure tag-fill" value="" />
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
                 </form>
 
             </div>
@@ -99,10 +110,11 @@
             var categoryId = $('#categoryId').val();
             var comments = $('#comments').val();
             var title = $('#title').val();
+            var tags = $('#tags').val();
             var content = $('#content').val();
             var htmlContent = $('.editormd-preview-container').html();
             var isHot = $('#isHot').hasClass('checked')?1:0;
-            $.post('{{ route('articleAdd') }}',{categoryId:categoryId,comments:comments,title:title,content:content,htmlContent:htmlContent,isHot:isHot},
+            $.post('{{ route('articleAdd') }}',{categoryId:categoryId,comments:comments,title:title,content:content,htmlContent:htmlContent,isHot:isHot,tag:tags},
                 function(data){
                     swal('', '', data);
                 }

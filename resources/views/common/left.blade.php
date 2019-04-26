@@ -60,20 +60,6 @@
                 </div>
             </li>
 
-            <li>
-                <a data-toggle="collapse" href="#formsExamples">
-                    <i class="pe-7s-note2"></i>
-                    <p>标签管理
-                        <b class="caret"></b>
-                    </p>
-                </a>
-                <div class="collapse" id="formsExamples">
-                    <ul class="nav">
-                        <li><a href="{{ route('tagLists') }}">标签列表</a></li>
-                        <li><a href="{{ route('tagCreate') }}">新增标签</a></li>
-                    </ul>
-                </div>
-            </li>
 
             <li>
                 <a data-toggle="collapse" href="#tablesExamples">

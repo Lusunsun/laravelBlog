@@ -15,12 +15,12 @@ class  CategoryService {
 
     public function getSelect()
     {
-        return $this->category->getAllCategory();
+        return $this->category->getSelect();
     }
 
-    public function getCategoryLists()
+    public function getCategoryLists($page)
     {
-        return $this->category->getAllCategory();
+        return $this->category->getAllCategory($page);
     }
 
     public function getCategory($id)

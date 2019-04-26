@@ -109,11 +109,11 @@
 <!-- Sweet Alert 2 plugin -->
 <script src="/admin/js/sweetalert2.js"></script>
 
-<!-- Vector Map plugin -->
-<script src="/admin/js/jquery-jvectormap.js"></script>
+{{--<!-- Vector Map plugin -->--}}
+{{--<script src="/admin/js/jquery-jvectormap.js"></script>--}}
 
-<!--  Google Maps Plugin    -->
-<script src="/admin/js/aa743e8f448a4792bad10d201a7080f6.js"></script>
+{{--<!--  Google Maps Plugin    -->--}}
+{{--<script src="/admin/js/aa743e8f448a4792bad10d201a7080f6.js"></script>--}}
 
 <!-- Wizard Plugin    -->
 <script src="/admin/js/jquery.bootstrap.wizard.min.js"></script>

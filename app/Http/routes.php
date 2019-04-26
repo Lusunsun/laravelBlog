@@ -13,7 +13,7 @@
 
 Route::get('/',['uses'=>'IndexController@index','as'=>'home']);
 Route::get('articleList',['uses'=>'ArticleController@articleList']);
-Route::get('article/{id}',['uses'=>'ArticleController@index','as'=>'article']);
+Route::get('article',['uses'=>'ArticleController@index','as'=>'article']);
 
 //后台
 Route::group(['prefix' => 'admin'],  function() {
@@ -35,13 +35,6 @@ Route::group(['prefix' => 'admin'],  function() {
     Route::get('categoryCreate',['uses'=>'admin\CategoryController@create','as'=>'categoryCreate']);
     Route::post('categoryAdd',['uses'=>'admin\CategoryController@add','as'=>'categoryAdd']);
 
-    //标签管理
-    Route::get('tagLists',['uses'=>'admin\TagController@lists','as'=>'tagLists']);
-    Route::get('tagUpdate',['uses'=>'admin\TagController@update','as'=>'tagUpdate']);
-    Route::post('tagEdit',['uses'=>'admin\TagController@edit','as'=>'tagEdit']);
-    Route::post('tagDelete',['uses'=>'admin\TagController@delete','as'=>'tagDelete']);
-    Route::get('tagCreate',['uses'=>'admin\TagController@create','as'=>'tagCreate']);
-    Route::post('tagAdd',['uses'=>'admin\TagController@add','as'=>'tagAdd']);
 });
 
 
