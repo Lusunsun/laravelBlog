@@ -8,12 +8,7 @@
 
     <div class="logo">
         <a href="http://www.creative-tim.com" class="logo-text">
-            Creative Tim
-        </a>
-    </div>
-    <div class="logo logo-mini">
-        <a href="http://www.creative-tim.com" class="logo-text">
-            Ct
+            {{ date('Y-m-d H:i:s', time()) }}
         </a>
     </div>
 
@@ -21,18 +16,16 @@
 
         <div class="user">
             <div class="photo">
-                <img src="picture/default-avatar.png" />
+                <img src="picture/avatar.jpg" />
             </div>
             <div class="info">
                 <a data-toggle="collapse" href="#collapseExample" class="collapsed">
-                    Tania Andrew
+                    芦笋
                     <b class="caret"></b>
                 </a>
                 <div class="collapse" id="collapseExample">
                     <ul class="nav">
-                        <li><a href="#">My Profile</a></li>
-                        <li><a href="#">Edit Profile</a></li>
-                        <li><a href="#">Settings</a></li>
+                        <li><a href="#">在线简历</a></li>
                     </ul>
                 </div>
             </div>
@@ -93,7 +86,7 @@
             </li>
 
             <li class="active">
-                <a href="charts.html">
+                    <a href="charts.html">
                     <i class="pe-7s-graph1"></i>
                     <p>浏览记录</p>
                 </a>
