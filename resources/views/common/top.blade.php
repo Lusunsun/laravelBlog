@@ -3,7 +3,7 @@
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="charts.html">
+                    <a href="#">
                         <i class="fa fa-line-chart"></i>
                         <p>Stats</p>
                     </a>

@@ -33,8 +33,8 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">是否热门</label>
                             <div class="col-sm-10 ">
-                                <label class="checkbox  " id="isHot">
-                                    <span class="icons"><span class="first-icon fa fa-square-o"></span><span class="second-icon fa fa-check-square-o"></span></span><input type="checkbox" data-toggle="checkbox" value=""  checked="">
+                                <label class="checkbox {{ $articleData->isHot == 1 ? 'checked':''}}" id="isHot">
+                                    <span class="icons"><span class="first-icon fa fa-square-o"></span><span class="second-icon fa fa-check-square-o"></span></span><input type="checkbox" data-toggle="checkbox" value="">
                                 </label>
                             </div>
                         </div>
@@ -97,11 +97,7 @@
     var testEditor;
     $(function() {
 
-        if ('{{ $articleData->isHot }}' != 1) {
-            console.log('{{ $articleData->isHot }}');
-            console.log($('#isHot').removeClass('checked'));
-            $('#isHot').removeClass('checked');
-        }
+
         $('body').addClass('text-align:center');
         $('#first_content').css('margin','0 auto');
         $('#first_content').css('width','80%');
@@ -128,8 +124,6 @@
                 }
             );
         });
-
-
     });
 
 

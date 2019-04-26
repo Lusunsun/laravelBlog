@@ -33,12 +33,6 @@
 
         <ul class="nav">
             <li>
-                <a href="dashboard.html">
-                    <i class="pe-7s-graph"></i>
-                    <p>Dashboard</p>
-                </a>
-            </li>
-            <li>
                 <a data-toggle="collapse" href="#componentsExamples">
                     <i class="pe-7s-plugin"></i>
                     <p>文章管理
@@ -52,7 +46,6 @@
                     </ul>
                 </div>
             </li>
-
 
             <li>
                 <a data-toggle="collapse" href="#tablesExamples">
@@ -69,30 +62,12 @@
                 </div>
             </li>
 
-            <li>
-                <a data-toggle="collapse" href="#mapsExamples">
-                    <i class="pe-7s-map-marker"></i>
-                    <p>Maps
-                        <b class="caret"></b>
-                    </p>
-                </a>
-                <div class="collapse" id="mapsExamples">
-                    <ul class="nav">
-                        <li><a href="maps/google.html">Google Maps</a></li>
-                        <li><a href="maps/vector.html">Vector Maps</a></li>
-                        <li><a href="maps/fullscreen.html">Full Screen Map</a></li>
-                    </ul>
-                </div>
-            </li>
-
             <li class="active">
-                    <a href="charts.html">
+                    <a href="#">
                     <i class="pe-7s-graph1"></i>
                     <p>浏览记录</p>
                 </a>
             </li>
-
-
         </ul>
     </div>
 </div>
