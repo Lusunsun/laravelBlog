@@ -4,10 +4,9 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" href="/admin/editor/examples/css/style.css" />
     <link rel="stylesheet" href="/admin/editor/css/editormd.css" />
-    <link rel="icon" type="image/png" href="../assets/img/favicon.ico">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-    <title>Light Bootstrap Dashboard PRO by Creative Tim</title>
+    <title>LuSun Blog</title>
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />

@@ -14,9 +14,10 @@
 Route::get('/',['uses'=>'IndexController@index','as'=>'home']);
 Route::get('articleList',['uses'=>'ArticleController@articleList']);
 Route::get('article',['uses'=>'ArticleController@index','as'=>'article']);
-
+Route::get('loginForm',['uses'=>'admin\LoginController@loginForm','as'=>'loginForm']);
+Route::post('login',['uses'=>'admin\LoginController@login','as'=>'login']);
 //后台
-Route::group(['prefix' => 'admin'],  function() {
+Route::group(['prefix' => 'admin', 'middleware' => 'CheckLogin'],  function() {
     Route::get('index',['uses'=>'admin\ArticleController@index','as'=>'adminIndex']);
 
     //文章管理

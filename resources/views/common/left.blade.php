@@ -7,7 +7,7 @@
     -->
 
     <div class="logo">
-        <a href="http://www.creative-tim.com" class="logo-text">
+        <a  class="logo-text">
             {{ date('Y-m-d H:i:s', time()) }}
         </a>
     </div>
