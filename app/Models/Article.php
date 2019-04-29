@@ -34,7 +34,6 @@ class Article extends Model
         $where[] = ['category.isDelete','=',0];
 
         if (!empty($keyWord)) {
-            $where[] = ['article.htmlContent', 'like', '%'.$keyWord.'%'];
             $where[] = ['article.title', 'like', '%'.$keyWord.'%'];
         }
 
@@ -42,7 +41,7 @@ class Article extends Model
             $where[] = ['article.categoryId','=',$categoryId];
         }
 
-        if(!empty($tag)){
+        if (!empty($tag)) {
             $where[] = ['article.tag','like','%'.$tag.'%'];
         }
 
@@ -105,6 +104,13 @@ class Article extends Model
         $where['isHot'] = 1;
         $where['isDelete'] = 0;
         return DB::table('article')->where($where)->select($select)->take(5)->orderBy('views','desc')->get();
+    }
+
+    public function getTags()
+    {
+        $where['isHot'] = 1;
+        $where['isDelete'] = 0;
+        return DB::table('article')->where($where)->lists('tag');
     }
 
 }

@@ -100,7 +100,7 @@
         $('#first_content').css('width','80%');
         testEditor = editormd("markdown", {
             width   : "100%",
-            height  : 500,
+            height  : 800,
             syncScrolling : "single",
             path    : "http://www.blog.com/admin/editor/lib/"
         });

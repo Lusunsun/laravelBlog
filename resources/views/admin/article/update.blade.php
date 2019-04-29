@@ -23,7 +23,7 @@
                             <label class="col-sm-2 control-label">文章分类</label>
                                 <select name="category" class=" selectpicker col-sm-10 " data-title="Single Select" data-menu-style="dropdown-blue" tabindex="-98" id="categoryId">
                                     @foreach ($selects->getSelect() as $key=>$category)
-                                        <option value="{{ $category->id }}" selected="{{ $category->name==$articleData->name? 'selected':''}}">{{ $category->name }}</option>
+                                        <option value="{{ $category->id }}" {{ $category->name==$articleData->name? 'selected':''}}>{{ $category->name }}</option>
                                     @endforeach
                                 </select>
                         </div>
@@ -103,7 +103,7 @@
         $('#first_content').css('width','80%');
         testEditor = editormd("markdown", {
             width   : "100%",
-            height  : 500,
+            height  : 800,
             syncScrolling : "single",
             path    : "http://www.blog.com/admin/editor/lib/"
         });

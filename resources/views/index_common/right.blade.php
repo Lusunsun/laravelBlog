@@ -22,7 +22,6 @@
         <div class="tag-list">
             <ul>
                 @foreach($Tags->getHotTags() as $key => $tag)
-                    {{--<li><a href="{{ route('home',['tagId'=>$tag->id]) }}">{{ $tag->name }}</a></li>--}}
                     <li><a href="{{ route('home',['tag'=>$tag]) }}">{{ $tag }}</a></li>
                 @endforeach
             </ul>

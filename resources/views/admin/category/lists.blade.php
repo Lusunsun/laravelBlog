@@ -84,7 +84,12 @@
                 closeOnConfirm: false,
             },function(){
                 $.post('{{ route('categoryDelete') }}',{id:categoryId},function(data){
+                    if ('error' == data) {
                         swal('', '删除失败 请检查当前分类下是否存在文章', data);
+                    } else {
+                        swal('', '删除成功', data);
+                    }
+
                     }
                 );
 

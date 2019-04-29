@@ -24,7 +24,7 @@
                     {!! $article->htmlContent !!}
                 </div>
                 <!-- End Text -->
-                <span class="tags"><a href="#">Black & White</a>, <a href="#">Color</a>, <a href="#">Portfolio</a></span> </div>
+                <span class="tags">标签: {{ $article->tag }}</span> </div>
             <!-- End Post -->
         </div>
     </div>

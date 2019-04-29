@@ -50,12 +50,13 @@ class  ArticleService {
      */
     public function getHotTags()
     {
-        $tags = [];
-        $articles = $this->article->getHots();
-        foreach ($articles as $key => $article){
-            $arr = explode(' ', $article->tag);
-            $tags = array_merge($tags, $arr);
+        $tagArr = [];
+        $tags = $this->article->getTags();
+        foreach ($tags as $key => $tag){
+            $tag = strtolower($tag);
+            $arr = explode(',', $tag);
+            $tagArr = array_merge($tagArr, $arr);
         }
-        return array_unique(array_filter($tags));
+        return array_unique(array_filter($tagArr));
     }
 }
