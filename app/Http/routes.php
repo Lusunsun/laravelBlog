@@ -16,6 +16,7 @@ Route::get('articleList',['uses'=>'ArticleController@articleList']);
 Route::get('article',['uses'=>'ArticleController@index','as'=>'article']);
 Route::get('loginForm',['uses'=>'admin\LoginController@loginForm','as'=>'loginForm']);
 Route::post('login',['uses'=>'admin\LoginController@login','as'=>'login']);
+Route::post('commentAdd',['prefix' => 'admin','uses'=>'admin\CommentController@add','as'=>'commentAdd']);
 //后台
 Route::group(['prefix' => 'admin', 'middleware' => 'CheckLogin'],  function() {
     Route::get('index',['uses'=>'admin\ArticleController@index','as'=>'adminIndex']);
@@ -35,6 +36,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'CheckLogin'],  function() {
     Route::post('categoryDelete',['uses'=>'admin\CategoryController@delete','as'=>'categoryDelete']);
     Route::get('categoryCreate',['uses'=>'admin\CategoryController@create','as'=>'categoryCreate']);
     Route::post('categoryAdd',['uses'=>'admin\CategoryController@add','as'=>'categoryAdd']);
+
+    //留言管理
+    Route::get('commentLists',['uses'=>'admin\CommentController@lists','as'=>'commentLists']);
+    Route::get('commentUpdate',['uses'=>'admin\CommentController@update','as'=>'commentUpdate']);
+    Route::post('commentEdit',['uses'=>'admin\CommentController@edit','as'=>'commentEdit']);
+    Route::post('commentDelete',['uses'=>'admin\CommentController@delete','as'=>'commentDelete']);
+    Route::get('commentCreate',['uses'=>'admin\CommentController@create','as'=>'commentCreate']);
+
 
 });
 

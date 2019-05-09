@@ -1,5 +1,5 @@
 @extends('common.basic')
-<link rel="stylesheet" type="text/css" href="sweetalert.css"/>
+
 @section('content')
     <div class="col-md-12">
         <div class="card">
@@ -15,25 +15,29 @@
                                     <thead>
                                     <tr>
                                         <th rowspan="1" colspan="1">ID</th>
-                                        <th rowspan="1" colspan="1">标题</th>
+                                        <th rowspan="1" colspan="1">邮箱</th>
+                                        <th rowspan="1" colspan="1">昵称</th>
+                                        <th rowspan="1" colspan="1">留言文章</th>
                                         <th rowspan="1" colspan="1">分类</th>
-                                        <th rowspan="1" colspan="1">是否热门</th>
-                                        <th rowspan="1" colspan="1">浏览次数</th>
-                                        <th rowspan="1" colspan="1">留言数</th>
-                                        <th rowspan="1" colspan="1">时间</th>
+                                        <th rowspan="1" colspan="1">内容</th>
+                                        <th rowspan="1" colspan="1">对方地址</th>
+                                        <th rowspan="1" colspan="1">对方IP</th>
+                                        <th rowspan="1" colspan="1">网络类型</th>
                                         <th class="text-right" rowspan="1" colspan="1">Actions</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($articles as $key => $value)
+                                    @foreach($comments as $key => $value)
                                         <tr role="row" class="{{ in_array($key,[1,3,5,7,9]) ? $trColor[$key] : ''}}">
                                             <td tabindex="0" class="sorting_1">{{ $value->id }}</td>
-                                            <td tabindex="0" class="sorting_1">{{ $value->title }}</td>
+                                            <td tabindex="0" class="sorting_1">{{ $value->email }}</td>
+                                            <td>{{ $value->name }}</td>
+                                            <td>{{ $value->title}}</td>
                                             <td>{{ $value->categoryName }}</td>
-                                            <td>{{ $value->isHot ? '热门':'非热门' }}</td>
-                                            <td>{{ $value->views }}次</td>
-                                            <td>{{ $value->comments }}个</td>
-                                            <td>{{ date('Y-m-d H:i:s', $value->updateTime) }}</td>
+                                            <td>{{ $value->content }}</td>
+                                            <td>{{ $value->address or '暂无' }}</td>
+                                            <td>{{ $value->ip or '暂无' }}</td>
+                                            <td>{{ $value->networkType or '暂无' }}</td>
                                             <td class="text-right">
                                                 <a href="{{ route('articleUpdate',['id'=>$value->id]) }}" class="btn btn-simple btn-info btn-icon edit"><i class="fa fa-edit"></i></a>
                                                 <a href="#" articleId="{{ $value->id }}" class="btn btn-simple btn-danger btn-icon remove delete"><i class="fa fa-times"></i></a> </td>

@@ -62,6 +62,20 @@
                 </div>
             </li>
 
+            <li>
+                <a data-toggle="collapse" href="#formsExamples">
+                    <i class="pe-7s-note2"></i>
+                    <p>留言管理
+                        <b class="caret"></b>
+                    </p>
+                </a>
+                <div class="collapse" id="formsExamples">
+                    <ul class="nav">
+                        <li><a href={{ route('commentLists') }}>留言列表</a></li>
+                    </ul>
+                </div>
+            </li>
+
             <li class="active">
                     <a href="#">
                     <i class="pe-7s-graph1"></i>

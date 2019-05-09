@@ -6,7 +6,11 @@
     "type": "project",
     "require": {
         "php": ">=5.5.9",
-        "laravel/framework": "5.2.*"
+        "cboden/ratchet": "^0.4.1",
+        "workerman/gatewayclient": "^3.0",
+        "laravel/framework": "5.2.*",
+        "workerman/workerman": "^3.5",
+        "workerman/gateway-worker": "^3.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

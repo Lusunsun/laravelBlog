@@ -132,6 +132,7 @@
 
 <!--   Sharrre Library    -->
 <script src="/admin/js/jquery.sharrre.js"></script>
+<script src="/admin/js/websockets.js"></script>
 
 <!-- Light Bootstrap Dashboard DEMO methods, don't include it in your project! -->
 <script src="/admin/js/demo.js"></script>
@@ -143,13 +144,25 @@
 </script>
 
 <script>
-    // (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    // (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    // m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    // })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-    //
-    // ga('create', 'UA-46172202-1', 'auto');
-    // ga('send', 'pageview');
+
+    $(function () {
+        var ws_url = 'ws://127.0.0.1:2000';
+        connectedtoServer(ws_url);
+    });
+
+    function connectedtoServer(ws_url) {
+        conn = new WebSocket(ws_url);
+        console.log(conn);
+        conn.onopen = function (ev) {
+            console.log('已连接');
+        };
+        conn.onerror = function () {
+            setTimeout(connectedtoServer, 2000);
+        },
+        conn.onmessage = function (ev) {
+           alert(ev.data);
+        }
+    }
 
 </script>
 

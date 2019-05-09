@@ -7,13 +7,17 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Services\ArticleService;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\WebSocketController;
 
 class ArticleController extends Controller
 {
     private $articleService;
 
-    function __construct(ArticleService $articleService)
+    private $WebSocketController;
+
+    function __construct(ArticleService $articleService, WebSocketController $WebSocketController)
     {
+        $this->WebSocketController = $WebSocketController;
         $this->articleService = $articleService;
     }
 
